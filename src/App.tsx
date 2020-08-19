@@ -3,11 +3,16 @@ import Number from "./Number";
 import { Form, Input } from "./Input";
 interface IState {
   counter: number;
+  name: string;
 }
 
 class App extends React.Component<{}, IState> {
   state = {
     counter: 0,
+    name: "",
+  };
+  onchange = (event: React.SyntheticEvent<HTMLInputElement>) => {
+    console.log(event.target);
   };
   add = () => {
     this.setState(prev => ({
@@ -20,11 +25,11 @@ class App extends React.Component<{}, IState> {
     }));
   };
   render() {
-    const { counter } = this.state;
+    const { counter, name } = this.state;
     return (
       <div>
         <Form>
-          <Input />
+          <Input value={name} onchange={this.onchange} />
         </Form>
         <Number count={counter} />
         <button onClick={this.add}>+ 1</button>
