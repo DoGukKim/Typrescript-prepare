@@ -1,5 +1,6 @@
 import React from "react";
 import Number from "./Number";
+import { Form, Input } from "./Input";
 interface IState {
   counter: number;
 }
@@ -22,6 +23,9 @@ class App extends React.Component<{}, IState> {
     const { counter } = this.state;
     return (
       <div>
+        <Form>
+          <Input />
+        </Form>
         <Number count={counter} />
         <button onClick={this.add}>+ 1</button>
         <button onClick={this.min}>- 1</button>

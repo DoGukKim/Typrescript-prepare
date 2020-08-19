@@ -1,8 +1,16 @@
 import React from "react";
 
-export const Input: React.FunctionComponent = () => (
+interface IInputProps {
+  value: string;
+  onchange: () => void;
+}
+
+export const Input: React.FunctionComponent<IInputProps> = ({
+  value,
+  onchange,
+}) => (
   <>
-    <input placeholder="Name" type="text" />
+    <input placeholder="Name" type="text" value={value} onChange={onchange} />
   </>
 );
 export const Form: React.FunctionComponent = ({ children }) => (
