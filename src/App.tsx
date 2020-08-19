@@ -34,6 +34,7 @@ class App extends React.Component<{}, IState> {
         <Form onFormSubmit={this.onFormSubmit}>
           <Input value={name} onchange={this.onchange} />
         </Form>
+        <span>The Num is </span>
         <Number count={counter} />
         <button onClick={this.add}>+ 1</button>
         <button onClick={this.min}>- 1</button>
