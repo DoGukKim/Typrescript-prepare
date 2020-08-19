@@ -13,6 +13,10 @@ export const Input: React.FunctionComponent<IInputProps> = ({
     <input placeholder="Name" type="text" value={value} onChange={onchange} />
   </>
 );
-export const Form: React.FunctionComponent = ({ children }) => (
-  <form>{children}</form>
-);
+interface IFormProps {
+  onFormSubmit: (event: React.FormEvent) => void;
+}
+export const Form: React.FunctionComponent<IFormProps> = ({
+  children,
+  onFormSubmit,
+}) => <form onSubmit={onFormSubmit}>{children}</form>;
