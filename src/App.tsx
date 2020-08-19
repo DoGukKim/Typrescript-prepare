@@ -1,6 +1,5 @@
 import React from "react";
-import "./App.css";
-
+import { createGlobalStyle } from "styled-components";
 function App() {
   return <div className="App"></div>;
 }
