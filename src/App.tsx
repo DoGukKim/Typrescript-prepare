@@ -1,16 +1,34 @@
-import React, { useState } from "react";
+import React from "react";
+import { count } from "console";
 
-function App() {
-  const [count, setCount] = useState(0);
-  const add = () => setCount(count + 1);
-  const min = () => setCount(count - 1);
-  return (
-    <>
-      <p>The Number is {count}</p>
-      <button onClick={add}>+</button>
-      <button onClick={min}>-</button>
-    </>
-  );
+interface IState {
+  counter: number;
+}
+
+class App extends React.Component<{}, IState> {
+  state = {
+    counter: 0,
+  };
+  add = () => {
+    this.setState(prev => ({
+      counter: prev.counter + 1,
+    }));
+  };
+  min = () => {
+    this.setState(prev => ({
+      counter: prev.counter - 1,
+    }));
+  };
+  render() {
+    const { counter } = this.state;
+    return (
+      <div>
+        <p>The Num is {counter}</p>
+        <button onClick={this.add}>+ 1</button>
+        <button onClick={this.min}>- 1</button>
+      </div>
+    );
+  }
 }
 
 export default App;
